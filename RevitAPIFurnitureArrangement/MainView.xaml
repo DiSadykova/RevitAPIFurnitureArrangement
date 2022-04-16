@@ -7,7 +7,26 @@
              mc:Ignorable="d" 
              Height="200" Width="300"
              Title="Расстановка мебели">
-    <Ыеф>
-            
-    </Ыеф>
+    <StackPanel>
+        <Label Content="Выбрать тип мебели из списка"
+               Margin="5"/>
+        <ComboBox ItemsSource="{Binding Furnitures}"
+                  SelectedValue="{Binding SelectedFurnitureType}"
+                  DisplayMemberPath="Name"
+                  Margin="5"/>
+        
+        <Label Content="Выбрать уровень из списка"
+               Margin="5"/>
+        
+        <ComboBox ItemsSource="{Binding Levels}"
+                  SelectedValue="{Binding SelectedLevel}"
+                  DisplayMemberPath="Name"
+                  Margin="5"/>
+        
+        <Button Content="Применить"
+                Command="{Binding SaveCommand}"
+                Margin="5"/>
+        
+
+    </StackPanel>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autodesk.Revit.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,15 @@ namespace RevitAPIFurnitureArrangement
     /// <summary>
     /// Логика взаимодействия для MainView.xaml
     /// </summary>
-    public partial class MainView : UserControl
+    public partial class MainView : Window
     {
-        public MainView()
+        public MainView(ExternalCommandData commandData)
         {
             InitializeComponent();
+            MainViewViewModel vm = new MainViewViewModel(commandData);
+            vm.CloseRequest += (s, e) => this.Close();
+            DataContext = vm;
+
         }
     }
 }
